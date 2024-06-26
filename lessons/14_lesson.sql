@@ -1,18 +1,16 @@
--- SQL Lesson 10: Queries with aggregates (Pt. 1)
+-- SQL Lesson 14: Updating rows
 
--- 1. Find the longest time that an employee has been at the studio ✓
-SELECT Years_employed
-FROM employees
-ORDER BY Years_employed DESC
-LIMIT 1;
+-- 1. The director for A Bug's Life is incorrect, it was actually directed by John Lasseter
+UPDATE movies
+SET director = 'John Lasseter'
+WHERE title = "A Bug's Life";
 
--- 2. For each role, find the average number of years employed by employees in that role
-SELECT role, AVG(Years_employed) AS average_years_employed
-FROM employees
-GROUP BY role;
+-- 2. The year that Toy Story 2 was released is incorrect, it was actually released in 1999
+UPDATE movies
+SET year = 1999
+WHERE title = "Toy Story 2";
 
--- 3. Find the total number of employee years worked in each building
-SELECT building, SUM(Years_employed) AS total_years_employed
-FROM employees
-GROUP BY building;
-  
+-- 3. Both the title and director for Toy Story 8 is incorrect! The title should be "Toy Story 3" and it was directed by Lee Unkrich
+UPDATE movies
+SET title = "Toy Story 3", director = "Lee Unkrich"
+WHERE title = "Toy Story 8";
