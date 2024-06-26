@@ -1,18 +1,13 @@
--- SQL Lesson 10: Queries with aggregates (Pt. 1)
+-- SQL Lesson 16: Creating tables
 
--- 1. Find the longest time that an employee has been at the studio ✓
-SELECT Years_employed
-FROM employees
-ORDER BY Years_employed DESC
-LIMIT 1;
+-- 1. Create a new table named Database with the following columns:
+  -- - Name A string (text) describing the name of the database
+  -- - Version A number (floating point) of the latest version of this database
+  -- - Download_count An integer count of the number of times this database was downloaded
+  -- This table has no constraints.
 
--- 2. For each role, find the average number of years employed by employees in that role
-SELECT role, AVG(Years_employed) AS average_years_employed
-FROM employees
-GROUP BY role;
-
--- 3. Find the total number of employee years worked in each building
-SELECT building, SUM(Years_employed) AS total_years_employed
-FROM employees
-GROUP BY building;
-  
+CREATE TABLE database (
+    name TEXT,
+    version INTEGER, 
+    download_count INTEGER
+);
