@@ -1,18 +1,7 @@
--- SQL Lesson 10: Queries with aggregates (Pt. 1)
+-- SQL Lesson 13: Inserting rows
 
--- 1. Find the longest time that an employee has been at the studio ✓
-SELECT Years_employed
-FROM employees
-ORDER BY Years_employed DESC
-LIMIT 1;
+-- 1. Add the studio's new production, Toy Story 4 to the list of movies (you can use any director)
+INSERT INTO movies VALUES (4, 'Toy Story 4', 'Josh Cooley', 2019, 100);
 
--- 2. For each role, find the average number of years employed by employees in that role
-SELECT role, AVG(Years_employed) AS average_years_employed
-FROM employees
-GROUP BY role;
-
--- 3. Find the total number of employee years worked in each building
-SELECT building, SUM(Years_employed) AS total_years_employed
-FROM employees
-GROUP BY building;
-  
+-- 2. Toy Story 4 has been released to critical acclaim! It had a rating of 8.7, and made 340 million domestically and 270 million internationally. Add the record to the BoxOffice table.
+INSERT INTO boxoffice VALUES (4, 8.7, 340000000, 270000000);
